@@ -69,7 +69,11 @@
 		{% include common/adsense.html %}
 	{% endif %}
 	<meta name="apple-mobile-web-app-title" content="{{ site.title }}" />
-	<title itemprop="headline">{{ page.title | default: 'Home' }} | {{ site.title }}</title>
+	{% if page.title == site.title %}
+		<title itemprop="headline">{{ page.title }}</title>
+	{% else %}
+		<title itemprop="headline">{{ page.title | default: 'Home' }} | {{ site.title }}</title>
+	{% endif %}
 	{% if site.data.scripts %}{% for script in site.data.scripts[jekyll.environment] %}
 		{% include common/script.html src=script.src type=script.type async=script.async defer=script.defer crossOrigin=script.crossOrigin referrerPolicy= script.referrerPolicy integrity=script.integrity noModule=script.noModule %}
 	{% endfor %}{% endif %}
