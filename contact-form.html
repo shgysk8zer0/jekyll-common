@@ -26,9 +26,9 @@
 			<input type="text" name="subject" id="subject" class="input" data-share-field="title" placeholder="Message Subject" list="subject-suggestions" autocomplete="off" autocapitalize="words" required="" />
 			{% if include.suggestedSubjects %}
 				<datalist id="subject-suggestions">
-				{% for subject in include.suggestedSubjects %}<option value="{{ subject }}" />{% endfor %}
-			</datalist>{% endunless %}
-		</div>{% endif %}
+					{% for subject in include.suggestedSubjects %}<option value="{{ subject }}" />{% endfor %}
+			</datalist>{% endif %}
+		</div>{% endunless %}
 		<div class="form-group">
 			<label for="body" class="input-label block required">
 				<b>Message</b>
