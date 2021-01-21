@@ -6,7 +6,7 @@
 	{% endunless %}
 	{% for link in site.data.links.nav %}
 		<a href="{{ link.href }}" class="nav-link center inline-block{% if link.href == page.url %} active no-pointer-events{% endif %}" title="{{ link.label | escape }}" rel="{{ link.rel | join: ' ' }}" target="{{ link.target | default: '_self' }}">
-			{% if link.icon %}{% include common/icon.html icon=link.icon %}<br />{% endif %}
+			{% if link.icon %}{% include common/icon.html icon=link.icon %}<br class="nav-item-br" />{% endif %}
 			<span class="nav-link-label">{{ link.label }}</span>
 		</a>
 	{% endfor %}
