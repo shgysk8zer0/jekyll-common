@@ -1,0 +1,22 @@
+{% case include.type %}
+{% when 'BarOrPub' %}Bar or Pub
+{% when 'FastFoodRestaurant' %}Fast Food
+{% when 'FoodEstablishment' %}Other Food Establishment
+{% when 'CafeOrCoffeeShop' %}Cafe or Coffee Shop
+{% when 'FireStation' %}Fire Station
+{% when 'PoliceStation' %}Police Station
+{% when 'HighSchool' %}High School
+{% when 'ElementarySchool' %}Elementary School
+{% when 'EmergencyService' %}Emergency Service
+{% when 'PostOffice' %}Post Office
+{% when 'ParkingFacility' %}Parking
+{% when 'AutoRepair' %}Auto Repair
+{% when 'LocalBusiness' or 'Organization' %}Other Business
+{% when 'BankOrCreditUnion' %}Bank or Credit Union
+{% when 'AutomatedTeller' %}ATM
+{% when 'FinancialService' %}Financial Service
+{% when 'GasStation' %}Gas Station
+{% when 'BowlingAlley' %}Bowling Alley
+{% when 'MovieTheater' %}Movie Theater
+{% else %}{{ include.type | default: 'Unknown' }}
+{% endcase %}
