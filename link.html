@@ -1,0 +1,2 @@
+{% capture url %}{% include common/search-params.html url=include.url params=include.params hash=include.hash %}{% endcapture %}
+<a href="{{ url | strip }}" rel="{{ include.rel | default: 'noreferrer noopener external' }}" target="{{ include.target | default: '_self' }}"{% if include.class %} class="{{ include.class }}"{% endif %}{% if include.itemprop %} itemprop="{{ include.itemprop }}"{% endif %}{% if include.slot %} slot="{{ include.slot }}{% endif %}{% if include.title %} title="{{ include.title }}"{% endif %}>{{ include.content }}</a>

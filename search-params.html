@@ -1,0 +1,16 @@
+{% capture url %}
+	{% if include.params | size > 0 %}
+		{% capture params %}
+			{% for param in include.params %}
+				{{ param[0] | url_encode }}={{ param[1] | url_encode }}
+				{% unless forloop.last %}&amp;{% endunless %}{% endfor %}
+		{% endcapture %}
+		{% if include.url contains "?" %}
+			{{ include.url | append: '&amp;' | append: params | strip }}
+		{% else %}
+			{{ include.url trim | append: '?' | append: params | strip }}
+		{% endif %}
+	{% else %}
+		{{ include.url }}
+	{% endif %}
+{% endcapture %}{% if include.hash %}{{ url | append: '#' | append: include.hash | strip |strip_newlines | remove: '	' }}{% else %}{{ url | strip | strip_newlines  | remove: '	' }}{% endif %}
