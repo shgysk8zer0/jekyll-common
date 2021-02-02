@@ -1,4 +1,6 @@
-<a href="{{ include.url }}" class="color-inherit" itemprop="{{ include.itemprop | default: 'url' }}">
+{% capture url %}{% include common/search-params.html url=include.url params=include.params hash=include.hash %}{% endcapture %}
+{% assign display=include.url | remove: 'http://' | remove: 'https://' | remove: 'www.' | split: '/' | first %}
+<a href="{{ url | strip }}" class="color-inherit" itemprop="{{ include.itemprop | default: 'url' }}" rel="noopener noreferrer external">
 	{% include common/icon.html icon='web-browser' %}
-	<span>{{ include.url | replace: 'https://', '' | replace: 'http://', '' | replace: 'www.', '' }}</span>
+	<span>{{ display }}</span>
 </a>
