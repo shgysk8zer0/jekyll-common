@@ -8,6 +8,7 @@
 {% when 'HighSchool' %}High School
 {% when 'ElementarySchool' %}Elementary School
 {% when 'EmergencyService' %}Emergency Service
+{% when 'VeterinaryCare' %}Veterinary Care
 {% when 'PostOffice' %}Post Office
 {% when 'ParkingFacility' %}Parking
 {% when 'AutoRepair' %}Auto Repair
@@ -17,7 +18,6 @@
 {% when 'FinancialService' %}Financial Service
 {% when 'GasStation' %}Gas Station
 {% when 'HardwareStore' %}Hardware Store
-{% when 'GroceryStore' %}Grocery Store
 {% when 'BowlingAlley' %}Bowling Alley
 {% when 'MovieTheater' %}Movie Theater
 {% else %}{{ include.type | default: 'Unknown' }}
