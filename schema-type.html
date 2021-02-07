@@ -9,15 +9,20 @@
 {% when 'ElementarySchool' %}Elementary School
 {% when 'EmergencyService' %}Emergency Service
 {% when 'VeterinaryCare' %}Veterinary Care
+{% when 'AnimalShelter' %}Animal Shelter
 {% when 'PostOffice' %}Post Office
 {% when 'ParkingFacility' %}Parking
-{% when 'AutoRepair' %}Auto Repair
 {% when 'LocalBusiness' or 'Organization' %}Other Business
 {% when 'BankOrCreditUnion' %}Bank or Credit Union
 {% when 'AutomatedTeller' %}ATM
 {% when 'FinancialService' %}Financial Service
 {% when 'GasStation' %}Gas Station
+{% when 'GroceryStore' %}Grocery Store
 {% when 'HardwareStore' %}Hardware Store
+{% when 'AutoPartsStore' %}Auto Parts Store
+{% when 'AutoRepair' %}Auto Repair
+{% when 'TireShop' %}Tire Shop
+{% when 'Store' %}Other Store
 {% when 'BowlingAlley' %}Bowling Alley
 {% when 'MovieTheater' %}Movie Theater
 {% else %}{{ include.type | default: 'Unknown' }}
