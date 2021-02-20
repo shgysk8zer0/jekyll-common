@@ -16,14 +16,18 @@
 {% when 'BankOrCreditUnion' %}Bank or Credit Union
 {% when 'AutomatedTeller' %}ATM
 {% when 'FinancialService' %}Financial Service
+{% when 'RealEstateAgent' %}Real Estate
 {% when 'GasStation' %}Gas Station
 {% when 'GroceryStore' %}Grocery Store
 {% when 'HardwareStore' %}Hardware Store
 {% when 'AutoPartsStore' %}Auto Parts Store
 {% when 'AutoRepair' %}Auto Repair
 {% when 'TireShop' %}Tire Shop
+{% when 'SelfStorage' %}Self Storage
 {% when 'Store' %}Other Store
+{% when 'JewelryStore' %}Jewelry Store
 {% when 'BowlingAlley' %}Bowling Alley
 {% when 'MovieTheater' %}Movie Theater
+{% when 'Scrool' %}Other School
 {% else %}{{ include.type | default: 'Unknown' }}
 {% endcase %}
