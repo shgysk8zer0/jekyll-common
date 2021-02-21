@@ -15,7 +15,7 @@
 		<meta property="og:image" content="{{ page.thumbnail.url }}" />
 		<meta name="twitter:image" content="{{ page.thumbnail.url }}" />
 	{% elsif page.imgur %}
-		{% capture hash %}{{ page.imgur | replace: 'https://i.imgur.com/', '' | replace: 'https://imgur.com/', '' | replace: '.png', '' | replace: '.jpg', '' }}{% endcapture %}
+		{% capture hash %}{{ page.imgur | remove: 'https://i.imgur.com/' | remove: 'https://imgur.com/' | remove: '.png' | remove: '.jpg' }}{% endcapture %}
 		<meta itemprop="thumbnailUrl" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
 		<meta property="og:image" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
 		<meta name="twitter:image" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
@@ -32,6 +32,7 @@
 	{% endif %}
 	<!-- Social data -->
 	<!-- Facebook | OpenGraph -->
+	<meta property="og:site_name" content="{{ site.name | escape }}" />
 	<meta property="og:type" content="{{ page.og-type | default: layout.og-type }}" />
 	<meta property="og:title" content="{{ page.title | default: 'Home' }} | {{ site.title }}" />
 	<meta property="og:url" content="{{ page.url | absolute_url }}" />
@@ -40,15 +41,10 @@
 	{% if site.facebook-id %}
 		<meta property="og:app_id" content="{{ site.facebook-id }}" />
 	{% endif %}
-	{% if site.facebook-site-name %}
-		<meta name="og:site_name" content="{{ site.facebook-site-name }}" />
-	{% endif %}
 	<!-- /Facebook | OpenGraph -->
 	<!-- Twitter -->
 	<meta name="twitter:card" content="{{ page.twitter_card | default: 'summary' }}" />
-	{% if page.twitter_creator %}
-		<meta name="twitter:creator" content="{{ page.twitter_creator }}" />
-	{% endif %}
+	<meta name="twitter:creator" content="{{ page.twitter_creator | default: site.twitter }}" />
 	<meta name="twitter:description" content="{{ page.description }}" />
 	<!-- /Twitter -->
 	<!-- /Social data -->
@@ -70,9 +66,9 @@
 	{% endif %}
 	<meta name="apple-mobile-web-app-title" content="{{ site.title }}" />
 	{% if page.title == site.title %}
-		<title itemprop="headline">{{ page.title }}</title>
+		<title itemprop="name headline">{{ page.title }}</title>
 	{% else %}
-		<title itemprop="headline">{{ page.title | default: 'Home' }} | {{ site.title }}</title>
+		<title itemprop="name headline">{{ page.title | default: 'Home' }} | {{ site.title }}</title>
 	{% endif %}
 	{% if site.data.scripts %}{% for script in site.data.scripts[jekyll.environment] %}
 		{% include common/script.html src=script.src type=script.type async=script.async defer=script.defer crossOrigin=script.crossOrigin referrerPolicy= script.referrerPolicy integrity=script.integrity noModule=script.noModule %}
