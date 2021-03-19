@@ -10,7 +10,7 @@
 	<meta name="referrer" content="{{ page.referrer | default: site.referrer }}"/>
 	<meta name="mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="color-scheme" content="{{ page.color-scheme | default: layout.color-scheme | default: site.color-scheme | default: 'dark light' }}">
+	<meta name="color-scheme" content="{{ page.color-scheme | default: layout.color-scheme | default: site.color-scheme | default: 'dark light' }}" />
 	{% if page.thumbnail.url $}
 		<meta itemprop="thumbnailUrl" content="{{ page.thumbnail.url }}" />
 		<meta property="og:image" content="{{ page.thumbnail.url }}" />
