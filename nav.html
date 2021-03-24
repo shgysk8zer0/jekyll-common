@@ -13,8 +13,7 @@
 	<span class="grow-4"></span>
 	{% if site.service_worker %}
 		<button type="button" is="pwa-install" id="install-btn" class="btn nav-btn" src="{{ site.service_worker }}" scope="/" title="Install Web App" reloadonupdate="" hidden="">
-			{% include common/icon.html height="22" width="22" fill="currentColor" icon="system-software-install" %}
-			<span class="mobile-hidden">Install</span>
+			<img src="https://cdn.kernvalley.us/img/logos/pwa-badge.svg" height="53" width="180" crossorigin="anonymous" referrerpolicy="no-referrer" loading="lazy" decoding="async" alt="Install PWA badge" class="badge pwa-badge" />
 		</button>
 	{% endif %}
 </nav>
