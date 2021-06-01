@@ -3,7 +3,7 @@
 	"name": "{{ include.app.name | default: site.title }}",
 	"short_name": "{{ include.app.shortName | default: site.title}}",
 	"description": "{{ include.app.description | default: site.description }}",
-	"start_url": "{{ include.app.startUrl | default: page.url | replace: 'webapp.manifest' }}",
+	"start_url": "{{ include.app.startUrl | default: page.url | replace: 'webapp.webmanifest' }}",
 	"lang": "{{ include.app.lang | default: site.lang }}",
 	"dir": "{{ site.app.data.dir | default: 'ltr' }}",
 	"orientation": "{{ site.app.data.orientation | default: 'any' }}",
