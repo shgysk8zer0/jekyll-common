@@ -30,5 +30,7 @@
 {% when 'MovieTheater' %}Movie Theater
 {% when 'Scrool' %}Other School
 {% when 'NGO' %}Non-Government Organization
+{% when 'TouristAttraction' %}Tourist Attraction
+{% when 'LandmarksOrHistoricalBuildings' %}Landmarks or Historical Building
 {% else %}{{ include.type | default: 'Unknown' }}
 {% endcase %}
