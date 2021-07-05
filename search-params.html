@@ -15,6 +15,6 @@
 			{{ passed_url | trim | append: '?' | append: params | strip }}
 		{% endif %}
 	{% else %}
-		{{ passed_url }}
+		{{ include.url }}
 	{% endif %}
 {% endcapture %}{% if include.hash %}{{ url | append: '#' | append: include.hash | strip |strip_newlines | remove: '	' }}{% elsif passed_hash %}{{ url | append: '#' | append: passed_hash | strip | strip_newlines | remove: '		' }}{% else %}{{ url | strip | strip_newlines  | remove: '	' }}{% endif %}
