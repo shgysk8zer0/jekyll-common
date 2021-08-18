@@ -33,5 +33,7 @@
 {% when 'NGO' %}Non-Government Organization
 {% when 'TouristAttraction' %}Tourist Attraction
 {% when 'LandmarksOrHistoricalBuildings' %}Landmarks or Historical Building
+{% when 'NewsMediaOrganization' %}News and Media
+{% when 'HVACBusiness' %}HVAC Business
 {% else %}{{ include.type | default: 'Unknown' }}
 {% endcase %}
