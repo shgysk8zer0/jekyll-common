@@ -13,7 +13,13 @@
 	<meta name="color-scheme" content="{{ page.color-scheme | default: layout.color-scheme | default: site.color-scheme | default: 'dark light' }}" />
 	{% if page.thumbnail.url $}
 		<meta itemprop="thumbnailUrl" content="{{ page.thumbnail.url }}" />
-		<meta property="og:image" content="{{ page.thumbnail.url }}" />
+		{% if page.thumbnail.width and page.thumbnail.height %}
+			<meta property="og:image:url" content="{{ page.thumbnail.url }}" />
+			<meta property="og:image:width" content="{{ page.thumbnail.width }}" />
+			<meta property="og:image:height" content="{{ page.thumbnail.height }}" />
+		{% else %}
+			<meta property="og:image" content="{{ page.thumbnail.url }}" />
+		{% endif %}
 		<meta name="twitter:image" content="{{ page.thumbnail.url }}" />
 	{% elsif page.imgur %}
 		{% capture hash %}{{ page.imgur | remove: 'https://i.imgur.com/' | remove: 'https://imgur.com/' | remove: '.png' | remove: '.jpg' }}{% endcapture %}
