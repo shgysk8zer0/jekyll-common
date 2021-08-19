@@ -20,7 +20,6 @@
 			<meta property="og:image:height" content="{{ page.thumbnail.height }}" />
 		{% endif %}
 		<meta name="twitter:image" content="{{ page.thumbnail.url }}" />
-	{% endif %}
 	{% elsif page.imgur %}
 		{% capture hash %}{{ page.imgur | remove: 'https://i.imgur.com/' | remove: 'https://imgur.com/' | remove: '.png' | remove: '.jpg' }}{% endcapture %}
 		<meta itemprop="thumbnailUrl" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
@@ -33,6 +32,11 @@
 	{% elsif site.thumbnail.url %}
 		<meta itemprop="thumbnailUrl" content="{{ site.thumbnail.url }}" />
 		<meta property="og:image" content="{{ site.thumbnail.url }}" />
+		{% if site.thumbnail.width and site.thumbnail.height %}
+			<meta property="og:image:url" content="{{ site.thumbnail.url }}" />
+			<meta property="og:image:width" content="{{ site.thumbnail.width }}" />
+			<meta property="og:image:height" content="{{ site.thumbnail.height }}" />
+		{% endif %}
 		<meta name="twitter:image" content="{{ site.thumbnail.url }}" />
 	{% elsif site.data.app.screenshots %}
 		{% for screenshot in site.data.app.screenshots %}
