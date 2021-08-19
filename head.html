@@ -11,33 +11,39 @@
 	<meta name="mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="color-scheme" content="{{ page.color-scheme | default: layout.color-scheme | default: site.color-scheme | default: 'dark light' }}" />
-	{% if page.thumbnail.url $}
+	{% if page.thumbnail.url and page.thumbnail.width $}
 		<meta itemprop="thumbnailUrl" content="{{ page.thumbnail.url }}" />
 		<meta property="og:image" content="{{ page.thumbnail.url }}" />
-		{% if page.thumbnail.width and page.thumbnail.height %}
-			<meta property="og:image:url" content="{{ page.thumbnail.url }}" />
-			<meta property="og:image:width" content="{{ page.thumbnail.width }}" />
-			<meta property="og:image:height" content="{{ page.thumbnail.height }}" />
-		{% endif %}
+		<meta property="og:image:url" content="{{ page.thumbnail.url }}" />
+		<meta property="og:image:width" content="{{ page.thumbnail.width }}" />
+		<meta property="og:image:height" content="{{ page.thumbnail.height }}" />
+		<meta name="twitter:image" content="{{ page.thumbnail.url }}" />
+	{% elsif page.thumbnail.url %}
+		<meta itemprop="thumbnailUrl" content="{{ page.thumbnail.url }}" />
+		<meta property="og:image" content="{{ page.thumbnail.url }}" />
+		<meta property="og:image:url" content="{{ page.thumbnail.url }}" />
 		<meta name="twitter:image" content="{{ page.thumbnail.url }}" />
 	{% elsif page.imgur %}
 		{% capture hash %}{{ page.imgur | remove: 'https://i.imgur.com/' | remove: 'https://imgur.com/' | remove: '.png' | remove: '.jpg' }}{% endcapture %}
 		<meta itemprop="thumbnailUrl" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
 		<meta property="og:image" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
 		<meta name="twitter:image" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
+	{% if site.thumbnail.url and site.thumbnail.width $}
+		<meta itemprop="thumbnailUrl" content="{{ site.thumbnail.url }}" />
+		<meta property="og:image" content="{{ site.thumbnail.url }}" />
+		<meta property="og:image:url" content="{{ site.thumbnail.url }}" />
+		<meta property="og:image:width" content="{{ site.thumbnail.width }}" />
+		<meta property="og:image:height" content="{{ site.thumbnail.height }}" />
+		<meta name="twitter:image" content="{{ site.thumbnail.url }}" />
+	{% elsif page.thumbnail.url %}
+		<meta itemprop="thumbnailUrl" content="{{ site.thumbnail.url }}" />
+		<meta property="og:image" content="{{ site.thumbnail.url }}" />
+		<meta property="og:image:url" content="{{ site.thumbnail.url }}" />
+		<meta name="twitter:image" content="{{ site.thumbnail.url }}" />
 	{% elsif page.image %}
 		<meta itemprop="thumbnailUrl" content="{{ page.image }}" />
 		<meta property="og:image" content="{{ page.image }}" />
 		<meta name="twitter:image" content="{{ page.image }}" />
-	{% elsif site.thumbnail.url %}
-		<meta itemprop="thumbnailUrl" content="{{ site.thumbnail.url }}" />
-		<meta property="og:image" content="{{ site.thumbnail.url }}" />
-		{% if site.thumbnail.width and site.thumbnail.height %}
-			<meta property="og:image:url" content="{{ site.thumbnail.url }}" />
-			<meta property="og:image:width" content="{{ site.thumbnail.width }}" />
-			<meta property="og:image:height" content="{{ site.thumbnail.height }}" />
-		{% endif %}
-		<meta name="twitter:image" content="{{ site.thumbnail.url }}" />
 	{% elsif site.data.app.screenshots %}
 		{% for screenshot in site.data.app.screenshots %}
 			<meta itemprop="thumbnailUrl" content="{{ screenshot.src }}" />
