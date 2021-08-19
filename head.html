@@ -32,12 +32,12 @@
 	{% elsif site.thumbnail.url %}
 		<meta itemprop="thumbnailUrl" content="{{ site.thumbnail.url }}" />
 		<meta property="og:image" content="{{ site.thumbnail.url }}" />
-		<meta name="twitter:image" content="{{ site.thumbnail.url }}" />
 		{% if site.thumbnail.width and site.thumbnail.height %}
 			<meta property="og:image:url" content="{{ site.thumbnail.url }}" />
 			<meta property="og:image:width" content="{{ site.thumbnail.width }}" />
 			<meta property="og:image:height" content="{{ site.thumbnail.height }}" />
 		{% endif %}
+		<meta name="twitter:image" content="{{ site.thumbnail.url }}" />
 	{% elsif site.data.app.screenshots %}
 		{% for screenshot in site.data.app.screenshots %}
 			<meta itemprop="thumbnailUrl" content="{{ screenshot.src }}" />
