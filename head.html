@@ -20,6 +20,7 @@
 			<meta property="og:image:height" content="{{ page.thumbnail.height }}" />
 		{% endif %}
 		<meta name="twitter:image" content="{{ page.thumbnail.url }}" />
+	{% endif %}
 	{% elsif page.imgur %}
 		{% capture hash %}{{ page.imgur | remove: 'https://i.imgur.com/' | remove: 'https://imgur.com/' | remove: '.png' | remove: '.jpg' }}{% endcapture %}
 		<meta itemprop="thumbnailUrl" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
