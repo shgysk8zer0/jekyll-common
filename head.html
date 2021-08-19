@@ -28,7 +28,7 @@
 		<meta itemprop="thumbnailUrl" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
 		<meta property="og:image" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
 		<meta name="twitter:image" content="{{ hash | prepend: 'https://i.imgur.com/' | append: 'l.png' }}" />
-	{% if site.thumbnail.url and site.thumbnail.width $}
+	{% elsif site.thumbnail.url and site.thumbnail.width %}
 		<meta itemprop="thumbnailUrl" content="{{ site.thumbnail.url }}" />
 		<meta property="og:image" content="{{ site.thumbnail.url }}" />
 		<meta property="og:image:url" content="{{ site.thumbnail.url }}" />
