@@ -11,7 +11,7 @@
 	<meta name="mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="color-scheme" content="{{ page.color-scheme | default: layout.color-scheme | default: site.color-scheme | default: 'dark light' }}" />
-	{% if page.thumbnail.url and page.thumbnail.width $}
+	{% if page.thumbnail.url and page.thumbnail.width %}
 		<meta itemprop="thumbnailUrl" content="{{ page.thumbnail.url }}" />
 		<meta property="og:image" content="{{ page.thumbnail.url }}" />
 		<meta property="og:image:url" content="{{ page.thumbnail.url }}" />
