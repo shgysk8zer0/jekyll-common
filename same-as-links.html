@@ -1,4 +1,4 @@
-<div class="flex row wrap space-around">
+<div class="{{ include.containerClass | default: 'flex row wrap space-around' }}">
 	{% for link in include.sameAs %}
 		{% if link contains "https://www.facebook.com/" %}
 			<a href="{{ link }}" itemprop="sameAs" rel="noreferrer noopener external" class="social-link facebook" title="Facebook">
@@ -34,7 +34,7 @@
 			</a>
 		{% else %}
 			<a href="{{ link }}" itemprop="sameAs" rel="noreferrer noopener external" class="social-link web" title="Website">
-				{% include common/icon.html icon="link" height="36" width="36" class="social-icon" %}
+				{% include common/icon.html icon="link" height="36" width="36" class="social-icon" fill="currentColor" %}
 			</a>
 		{% endif %}
 	{% endfor %}
