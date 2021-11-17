@@ -1,5 +1,6 @@
 {
-	"version": "{{ include.app.version | default: site.version }}",
+	"version": "{{ include.app.version | default: site.version }}",{% if include.app.id %}
+	"id": "{{ include.app.id }}",{% endif %}
 	"name": "{{ include.app.name | default: site.title }}",
 	"short_name": "{{ include.app.shortName | default: site.title}}",
 	"description": "{{ include.app.description | default: site.description }}",
@@ -11,13 +12,14 @@
 	"theme_color": "{{ include.app.theme.color | default: '#007bff' }}",
 	"background_color": "{{ include.app.theme.background | default: '#FEFEFE' }}",
 	"icons": {{ include.app.icons | where_exp: "icon", "icon.purpose" | jsonify }},
-	"screenshots": {{ include.app.screenshots | jsonify }},
-	{% if include.app.features %}"features": {{ include.app.features | jsonify }},{% endif %}
-	{% if include.app.iarc_rating_id %}"iarc_rating_id": {{ include.app.iarc_rating_id | jsonify }},{% endif %}
-	"prefer_related_applications": {% if include.app.prefer_related_applications == true %}true{% else %}false{%endif %},
-	{% if include.app.related_applications %}"related_applications": {{ include.app.related_applications | jsonify }},{% endif %}
-	{% if include.app.shortcuts %}"shortcuts": {{ include.app.shortcuts | jsonify }},{% endif %}
-	{% if include.app.share_target %}"share_target": {{ include.app.share_target | jsonify }},{% endif %}
-	{% if include.app.file_handlers %}"file_handlers": {{ include.app.file_handlers | jsonify }},{% endif %}
-	"categories": {{ include.app.categories | jsonify | default: '["lifestyle"]' }}
+	"screenshots": {{ include.app.screenshots | jsonify }},{% if include.app.iarc_rating_id %}
+	"iarc_rating_id": {{ include.app.iarc_rating_id | jsonify }},{% endif %}
+	"prefer_related_applications": {% if include.app.prefer_related_applications == true %}true{% else %}false{% endif %},{% if include.app.related_applications %}
+	"related_applications": {{ include.app.related_applications | jsonify }},{% endif %}{% if include.app.shortcuts %}
+	"shortcuts": {{ include.app.shortcuts | jsonify }},{% endif %}	{% if include.app.share_target %}
+	"share_target": {{ include.app.share_target | jsonify }},{% endif %}{% if include.app.file_handlers %}
+	"file_handlers": {{ include.app.file_handlers | jsonify }},{% endif %}{% if include.app.protocol_handlers %}
+	"protocol_handlers": {{ include.app.protocol_handlers | jsonify }},{% endif %}
+	"categories": {{ include.app.categories | jsonify | default: '["lifestyle"]' }},{% if include.app.features %}
+	"features": {{ include.app.features | jsonify }},{% endif %}{% if include.app.iarc_rating_id %}
 }
