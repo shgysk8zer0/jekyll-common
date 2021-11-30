@@ -1,4 +1,4 @@
-<a href="mailto:{{ include.email }}" class="color-inherit" content="{{ include.email }}" itemprop="{{ include.itemprop | default: 'email' }}">
-	{% include common/icon.html icon='mail-unread' %}
-	<span>{{ include.email }}</span>
+<a href="mailto:{{ include.email }}" class="color-inherit" content="{{ include.email }}" itemprop="{{ include.itemprop | default: 'email' }}" title="Email {{ include.email }}">
+	{% include common/icon.html icon="mail-unread" height=include.height width=include.width fill=include.fill class=include.class %}
+	{% unless include.no-text == true %}<span>{{ include.email }}</span>{% endunless %}
 </a>

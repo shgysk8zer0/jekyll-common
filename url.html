@@ -1,5 +1,7 @@
 {% capture url %}{% include common/search-params.html url=include.url params=include.params hash=include.hash %}{% endcapture %}
-<a href="{{ url | strip }}" class="color-inherit" itemprop="{{ include.itemprop | default: 'url' }}" rel="noopener noreferrer external">
-	{% include common/icon.html icon='web-browser' %}
-	<span>{{ include.url | remove: 'http://' | remove: 'https://' | remove: 'www.' | split: '/' | first }}</span>
+<a href="{{ url | strip }}" class="color-inherit" itemprop="{{ include.itemprop | default: 'url' }}" rel="noopener noreferrer external" title="Visit {{ include.url | remove: 'http://' | remove: 'https://' | remove: 'www.' | split: '/' | first }}">
+	{% include common/icon.html icon='web-browser' height=include.height width=include.width fill=include.fill class=include.class %}
+	{% unless include.no-text == true %}
+		<span>{{ include.url | remove: 'http://' | remove: 'https://' | remove: 'www.' | split: '/' | first }}</span>
+	{% endunless %}
 </a>
