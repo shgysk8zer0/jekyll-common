@@ -64,8 +64,8 @@
 				</a>
 			</div>
 		{% endif %}
-	</div>{% assign app = site.data.app.related_applications | find_exp: "app", "app.platform != 'webapp'" %}
-	{% if app %}
+	</div>
+	{% if site.data.app.related_applications %}
 		<hr />
 		<app-stores id="store-list" class="flex row wrap app-stores"></app-stores>
 	{% endif %}
