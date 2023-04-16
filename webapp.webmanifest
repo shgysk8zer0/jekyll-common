@@ -5,6 +5,7 @@
 	"short_name": "{{ include.app.shortName | default: site.title}}",
 	"description": "{{ include.app.description | default: site.description }}",
 	"start_url": "{{ include.app.startUrl | default: page.url | replace: 'webapp.webmanifest' }}",
+	"scope": "{{ include.app.scope | default: '/' }}",
 	"lang": "{{ include.app.lang | default: site.lang }}",
 	"dir": "{{ site.app.data.dir | default: 'ltr' }}",
 	"orientation": "{{ site.app.data.orientation | default: 'any' }}",
