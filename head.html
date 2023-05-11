@@ -91,6 +91,7 @@
 	{% else %}
 		<title itemprop="name headline">{{ page.title | default: 'Home' }} | {{ site.title }}</title>
 	{% endif %}
+	{% if site.data.importmap %}<script type="importmap"{% if site.data.importmap.nonce %} nonce="{{ site.data.importmap.nonce }}"{% endif %}>{"imports":{{ site.data.importmap.imports | jsonify | esape_xml }}}</script>{% endif %}
 	{% if site.data.scripts %}{% for script in site.data.scripts[jekyll.environment] %}
 		{% include common/script.html src=script.src type=script.type async=script.async defer=script.defer crossOrigin=script.crossOrigin referrerPolicy= script.referrerPolicy integrity=script.integrity noModule=script.noModule %}
 	{% endfor %}{% endif %}
